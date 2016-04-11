@@ -10,7 +10,7 @@ class TagQueryRunner:
     def run(self):
 
         while True:
-            tag = self.__get_string('Tag name')
+            tag = self.__get_string('Tag')
             relevance = self.__get_float("Min relevance")
             sentiment = self.__get_float("Min sentiment")
 
