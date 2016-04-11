@@ -1,5 +1,5 @@
 ##Bo Query Tool
-A simple proof of concept sample app for querying [Bo's](https://github.com/udeyrishi/bo) processed results (stored in MongoDB).
+A proof of concept sample app for querying [Bo's](https://github.com/udeyrishi/bo) processed results (stored in MongoDB).
 
 ##Dependencies
 Python 3 and PyMongo. Install PyMongo using:
