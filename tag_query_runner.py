@@ -19,8 +19,9 @@ import re
 
 
 class TagQueryRunner:
-    def __init__(self, db):
+    def __init__(self, db, filename=None):
         self.db = db
+        self.filename = filename
 
     def run(self):
 
@@ -30,12 +31,16 @@ class TagQueryRunner:
             sentiment = self.__get_float("Min sentiment")
 
             results = self.do_query(tag, relevance, sentiment)
+
+            output = ''
             if len(results) == 0:
-                print('No documents found matching query')
+                output += 'No documents found matching query\n'
             else:
-                print('Result count: ' + str(len(results)))
+                output += 'Result count: ' + str(len(results)) + '\n'
                 for r in results:
-                    print(r)
+                    output += r + '\n'
+
+            self.save_results(output)
 
     def do_query(self, tag_part, min_sentiment, min_relevance):
         results = self.db.find({
@@ -53,6 +58,13 @@ class TagQueryRunner:
             bson_results.append(bson.json_util.dumps(r, sort_keys=True, indent=4))
 
         return bson_results
+
+    def save_results(self, result):
+        if self.filename is None:
+            print(result)
+        else:
+            with open(self.filename, 'a') as f:
+                f.write(result + '\n')
 
     @staticmethod
     def __get_float(msg):
