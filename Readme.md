@@ -10,9 +10,23 @@ pip install -r requirements.txt
 
 ##Running
 ```sh
-./main.py <mongo_url> <mongo_db_name> <mongo_collection_name>
-Tag >> <enter_tagname_here>
-s
+# Usage
+./main.py -h
+usage: main.py [-h] [-f FILE] mongo_uri mongo_db collection
+
+positional arguments:
+  mongo_uri             The URI to the Mongo DB
+  mongo_db              The DB name
+  collection            The collection name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILE, --file FILE  The path to the output file. If not provided, printed
+                        to stdout.
+
+# Example:
+./main.py mongodb://localhost:27017/ bo_db bo_items
+                        
 Min relevance >> <enter_min_relevance_here>
 Min sentiment >> <enter_min_sentiment_here>
 
