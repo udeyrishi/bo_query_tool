@@ -18,6 +18,7 @@ class TagQueryRunner:
             if len(results) == 0:
                 print('No documents found matching query')
             else:
+                print('Result count: ' + str(len(results)))
                 for r in results:
                     print(r)
 
