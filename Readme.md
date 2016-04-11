@@ -19,6 +19,10 @@ Min sentiment >> <enter_min_sentiment_here>
 <results printed>
 ```
 
-The results are all the documents (i.e., Bo web page processing results) with one or more tags containing the entered tagname as a substring, such that the relevance value >= min\_relevance and sentiment value >= min\_sentiment.
+The results are all the documents (i.e., Bo web page processing results) such that:
+
+1. At least one tag contains the passed tagname as a substring, and
+2. The relevance value for that tag >= min\_relevance, and 
+3. The sentiment value for that tag >= min\_sentiment.
 
 See [Bo's Readme](https://github.com/udeyrishi/bo) for the details.
